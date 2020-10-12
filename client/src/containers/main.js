@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MeetingsList from '../components/MeetingsList.js';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class Main extends Component {
 
