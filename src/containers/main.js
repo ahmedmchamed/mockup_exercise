@@ -7,7 +7,8 @@ class Main extends Component {
         constructor(props) {
             super(props)
             this.state = {
-                meetingsList: []
+                meetingsList: [],
+                usersList: []
             }
 
             this.fetchMeetingsList = this.fetchMeetingsList.bind(this);
@@ -21,17 +22,33 @@ class Main extends Component {
             .then(meetingsList => {
                 this.setState(prevState => {
                     return {
+                        ...prevState,
                         meetingsList: meetingsList
                     }
-                }, () => {
-                    console.log(this.state.meetingsList)
-                })
+                }, () => console.log(this.state.meetingsList))
+            })
+            .catch(err => console.error(err));
+        }
+
+        fetchUsersList() {
+            const usersUrl = "https://coding-test.ajenta.io/users";
+
+            fetch(usersUrl)
+            .then(res => res.json())
+            .then(usersList => {
+                this.setState(prevState => {
+                    return {
+                        ...prevState,
+                        usersList: usersList
+                    }
+                }, () => console.log(this.state.usersList))
             })
             .catch(err => console.error(err));
         }
 
         componentDidMount() {
             this.fetchMeetingsList();
+            this.fetchUsersList();
         }
 
         render() {
