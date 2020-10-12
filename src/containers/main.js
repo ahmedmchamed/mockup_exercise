@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import MeetingsList from '../components/MeetingsList.js';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 class Main extends Component {
@@ -26,7 +27,7 @@ class Main extends Component {
                     console.log(this.state.meetingsList)
                 })
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
         }
 
         componentDidMount() {
@@ -35,7 +36,7 @@ class Main extends Component {
 
         render() {
             return (
-                <h1>Hello</h1>
+                <MeetingsList meetingsList={this.state.meetingsList} />
             )
         }
 
