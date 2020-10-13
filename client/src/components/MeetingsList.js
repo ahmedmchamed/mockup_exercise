@@ -5,6 +5,7 @@ const MeetingsList = ({meetingsList}) => {
 
     const meetings = meetingsList.map((meeting) => {
         return <UsersList
+                    key={meeting.callid}
                     meetingsList={meetingsList} 
                     callId={meeting.callid}
                     meetingName={meeting.name}
@@ -15,7 +16,7 @@ const MeetingsList = ({meetingsList}) => {
     })
 
     return (
-        <h1>Hello from component</h1>
+        <h1>{meetings}</h1>
     )
 
 }
