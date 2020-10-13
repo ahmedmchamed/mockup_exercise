@@ -53,7 +53,10 @@ class Main extends Component {
 
         render() {
             return (
-                <MeetingsList meetingsList={this.state.meetingsList} />
+                <MeetingsList
+                    usersList={this.state.usersList} 
+                    meetingsList={this.state.meetingsList} 
+                />
             )
         }
 

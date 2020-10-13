@@ -1,38 +1,23 @@
 import React from 'react';
 
 const UsersList = (props) => {
-    
-    const months = [   
-        "January", 
-        "February", 
-        "March", 
-        "April", 
-        "May", 
-        "June", 
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December" 
-    ]
 
     const meetingDateDetails = new Date(props.meetStartTime);
-    console.log(meetingDateDetails)
 
-    const dayOfMeeting = meetingDateDetails.getMonth();
-    const monthOfMeeting = meetingDateDetails.getMon
-    const yearOfMeeting = meetingDateDetails.getFullYear();
+    const dayOfMeeting = meetingDateDetails.toLocaleString('default', { weekday: 'long'})
+    const monthOfMeeting = meetingDateDetails.toLocaleString('default', { month: 'long' });
+    const yearOfMeeting = meetingDateDetails.toLocaleString('default', { year: 'numeric' })
+    const timeOfMeeting = meetingDateDetails.toLocaleString('default', { hour24: true }).split(',')[1]
 
-    let endTime;
-    let meetingName;
+    const meetingName = props.meetingName.charAt(0).toUpperCase() + props.meetingName.slice(1);
+    const meetingOwner = props.usersList.find((user) => user.id === props.owner);
 
     return (
         <>
-            <div>
+            <div className="meeting-list-container">
                 <ul>
                     <li>
-                        {dayOfMeeting}
+                        {props.callId} {meetingOwner.first_name} {meetingOwner.last_name} {meetingName} {dayOfMeeting} {monthOfMeeting} {yearOfMeeting} {timeOfMeeting}
                     </li>
                 </ul>
             </div>
