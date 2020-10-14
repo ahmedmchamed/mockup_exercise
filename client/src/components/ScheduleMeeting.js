@@ -5,33 +5,19 @@ export default function ScheduleMeeting() {
     const formState = {
         title: "",
         description: "",
-        duration: 0
+        duration: 0,
+        owner: null,
+        guests: []
     }
 
     const [formInput, setFormInput] = useState(formState);
+    const {title, description, duration, owner, guests} = formInput;
 
-    const {title, description, duration} = formInput;
-
-    // const [title, setTitle] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [duration, setDuration] = useState(0);
-
-    // const handleTitle = (event) => {
-    //     setTitle(event.target.value)
-    //     console.log(title)
-    // }
-
-    // const handleDescription = (event) => {
-
-    // }
-
-    // const handleDuration = (event) => {
-
-    // }
+    const [postResultObject, setPostResultObject] = useState({});
 
     const handleFormInput = (event) => {
         setFormInput({
-            ...formState,
+            ...formInput,
             [event.target.name]: event.target.value
         })
         console.log(title)
@@ -39,38 +25,72 @@ export default function ScheduleMeeting() {
         console.log(duration)
     }
 
+    const handleOwnerSearch = (event) => {
+
+    }
+
+    const handleSubmit = () => {
+        const postUrl = "https://coding-test.ajenta.io/meetings";
+        fetch(postUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formInput)
+        })
+        .then(res => res.json())
+        .then(postObject => setPostResultObject(postObject));
+    }
+
     return (
         <>
-        <form className="schedule-form">
-            <label>
-                TITLE
+            <form className="schedule-form" onSubmit={handleSubmit}>
+                <label>
+                    TITLE
+                    <input 
+                        name="title"
+                        type="text"  
+                        value={title} 
+                        onChange={handleFormInput} 
+                        placeholder="Weekly Meeting"
+                    />
+                </label>
+                <label>
+                    DESCRIPTION
+                    <input
+                        name="description"
+                        type="text"
+                        value={description}
+                        onChange={handleFormInput}
+                        placeholder="Weekly Stand Up and Project"
+                    />
+                </label>
+                <label>
+                    DURATION
+                    <select name="duration" value={duration} defaultValue="default" onChange={handleFormInput}>
+                        <option disabled selected="selected" value="default"></option>
+                        <option value="1">1h</option>
+                        <option value="2">2h</option>
+                        <option value="3">3h</option>
+                    </select>
+                </label>
                 <input 
-                    name="title"
-                    type="text"  
-                    value={title} 
-                    onChange={handleFormInput} 
-                    placeholder="Weekly Meeting"
+                    id="schedule-submit-button"
+                    type="submit"
+                    value="Schedule Meeting"
                 />
-            </label>
-            <label>
-                DESCRIPTION
-                <input
-                    name="description"
-                    type="text"
-                    value={description}
-                    onChange={handleFormInput}
-                    placeholder="Weekly Stand Up and Project"
-                />
-            </label>
-            <label>
-                DURATION
-                <select name="duration" value={duration} onChange={handleFormInput}>
-                    <option value="1">1h</option>
-                    <option value="2">2h</option>
-                    <option value="3">3h</option>
-                </select>
-            </label>
-        </form>
+            </form>
+            <div className="add-guests-field">
+                <label>
+                    ADD GUESTS
+                    <input
+                        name="owner"
+                        type="text"
+                        value={owner}
+                        onChange={handleOwnerSearch}
+                    />
+                </label>
+            </div>
         </>
     )
 

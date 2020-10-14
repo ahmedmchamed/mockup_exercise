@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MeetingsList from '../components/MeetingsList.js';
 import ScheduleMeeting from '../components/ScheduleMeeting.js';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class Main extends Component {
 
