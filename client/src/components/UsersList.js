@@ -8,7 +8,7 @@ const UsersList = (props) => {
     const dayOfMeeting = meetingDateDetails.toLocaleString('default', { day: 'numeric'})
     const monthOfMeeting = meetingDateDetails.toLocaleString('default', { month: 'long' });
     const yearOfMeeting = meetingDateDetails.toLocaleString('default', { year: 'numeric' })
-    const timeOfMeeting = meetingDateDetails.toLocaleString('default', { hour12: true }).split(',')[1]
+    const timeOfMeeting = meetingDateDetails.toLocaleString('default', { hour12: true, hour: '2-digit', minute: '2-digit' });
 
     const meetingName = props.meetingName.charAt(0).toUpperCase() + props.meetingName.slice(1);
     const meetingOwner = props.usersList.find((user) => user.id === props.owner);

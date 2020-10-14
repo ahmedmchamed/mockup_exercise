@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MeetingsList from '../components/MeetingsList.js';
+import ScheduleMeeting from '../components/ScheduleMeeting.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class Main extends Component {
@@ -62,6 +63,12 @@ class Main extends Component {
                                     usersList={this.state.usersList} 
                                     meetingsList={this.state.meetingsList} 
                                 />
+                            }
+                        />
+                        <Route 
+                            path="/schedule"
+                            render={() => 
+                                <ScheduleMeeting />
                             }
                         />
                     </>
