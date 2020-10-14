@@ -29,7 +29,19 @@ class Main extends Component {
                 body: JSON.stringify(newMeetingObject)
             })
             .then(res => res.json())
-            .then(postObject => console.log());
+            .then(data => {
+                const newMeeting = {
+                    callid: this.state.meetingsList.length + 1,
+                    name: data.name,
+                    start_time: data.start_time,
+                    end_time: data.end_time,
+                    owner: parseInt(data.owner)
+                }
+
+                this.setState((prevState) => {
+                    return {...prevState, newMeeting: newMeeting}
+                }, () => console.log(this.state.newMeeting))
+            });
         }
 
         fetchMeetingsList() {
@@ -69,16 +81,28 @@ class Main extends Component {
             this.fetchUsersList();
         }
 
+        componentDidUpdate(prevProps, prevState) {
+            if (prevState.newMeeting !== this.state.newMeeting) {
+                this.setState((prevState) => {
+                    return {
+                        ...prevState,
+                        meetingsList: [...this.state.meetingsList, this.state.newMeeting]
+                    }
+                }, () => console.log(this.state.meetingsList))
+            }
+        }
+
         render() {
             return (
                 <Router>
                     <>
                         <Route 
                             path="/home"
-                            render={() => 
+                            render={(props) => 
                                 <MeetingsList
+                                    {...props}
                                     usersList={this.state.usersList} 
-                                    meetingsList={this.state.meetingsList} 
+                                    meetingsList={this.state.meetingsList}
                                 />
                             }
                         />
