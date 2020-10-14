@@ -1,0 +1,54 @@
+/* .scheduled-meetings > dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+} */
+
+/* table {
+    border-collapse: separate;
+    border-spacing: 0 30px;
+} */
+
+/* tr {
+    border: solid thin;
+} */
+
+/* tr.test {
+    border: 1px solid blue;
+}
+
+tr.test > td {
+    padding-bottom: 1em;
+} */
+
+/* body{
+    background-color: #efeeee;
+} */
+
+table {
+    border-collapse: ;
+    border-spacing: 1em ;
+    border-radius: 8px;
+}
+
+
+/* table {
+    border-collapse: collapse;
+} */
+
+/* td {
+    text-align: left;
+} */
+
+tr.table-header {
+    text-align: left;
+}
+
+tr.table-body {
+    background:#ffffff;
+    box-shadow:0 2px 4px 0 rgba(158,158,158,0.27);
+    border-radius:8px;
+    width:960px;
+    height:56px;
+}
+
+

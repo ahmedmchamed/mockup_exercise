@@ -1,5 +1,6 @@
 import React from 'react';
 import UsersList from './UsersList.js';
+import './meetinglist.css';
 
 const MeetingsList = ({meetingsList, usersList}) => {
 
@@ -18,9 +19,25 @@ const MeetingsList = ({meetingsList, usersList}) => {
 
     return (
         <>
-            <h3>SCHEDULED MEETINGS ({meetings.length})</h3>
-            <li></li>
-            <h1>{meetings}</h1>
+            <div className="scheduled-meetings">
+                <h3 className="scheduled-meetings-title">SCHEDULED MEETINGS ({meetings.length})</h3>
+                <figure className="meeting-list-table">
+                    <table>
+                        <thead>
+                            <tr className="table-header">
+                                <th>CALL ID</th>
+                                <th>OWNER</th>
+                                <th>NAME</th>
+                                <th>DATE</th>
+                                <th>START</th>
+                            </tr>
+                        </thead>
+                        
+                        {meetings}
+
+                    </table>
+                </figure>
+            </div>
         </>
     )
 

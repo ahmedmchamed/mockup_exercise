@@ -53,10 +53,19 @@ class Main extends Component {
 
         render() {
             return (
-                <MeetingsList
-                    usersList={this.state.usersList} 
-                    meetingsList={this.state.meetingsList} 
-                />
+                <Router>
+                    <>
+                        <Route 
+                            path="/home"
+                            render={() => 
+                                <MeetingsList
+                                    usersList={this.state.usersList} 
+                                    meetingsList={this.state.meetingsList} 
+                                />
+                            }
+                        />
+                    </>
+                </Router>
             )
         }
 
