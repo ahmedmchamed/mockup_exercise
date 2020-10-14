@@ -9,10 +9,27 @@ class Main extends Component {
             super(props)
             this.state = {
                 meetingsList: [],
-                usersList: []
+                usersList: [],
+                newMeeting: {}
             }
 
             this.fetchMeetingsList = this.fetchMeetingsList.bind(this);
+            this.postNewMeeting = this.postNewMeeting.bind(this);
+        }
+
+        postNewMeeting(newMeetingObject) {
+            console.log(newMeetingObject)
+
+            const postUrl = "https://coding-test.ajenta.io/meetings";
+            fetch(postUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newMeetingObject)
+            })
+            .then(res => res.json())
+            .then(postObject => console.log());
         }
 
         fetchMeetingsList() {
@@ -68,7 +85,10 @@ class Main extends Component {
                         <Route 
                             path="/schedule"
                             render={() => 
-                                <ScheduleMeeting />
+                                <ScheduleMeeting 
+                                    usersList={this.state.usersList}
+                                    handleNewMeeting={this.postNewMeeting}
+                                />
                             }
                         />
                     </>

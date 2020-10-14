@@ -11,9 +11,11 @@ const UsersList = (props) => {
     const timeOfMeeting = meetingDateDetails.toLocaleString('default', { hour12: true, hour: '2-digit', minute: '2-digit' });
 
     const meetingName = props.meetingName.charAt(0).toUpperCase() + props.meetingName.slice(1);
-    const meetingOwner = props.usersList.find((user) => user.id === props.owner);
-
-    const meetingOwnerName = `${meetingOwner.first_name} ${meetingOwner.last_name}`;
+    const meetingOwner = props.usersList.find(user => user.id === props.owner);
+    let meetingOwnerName;
+    if (meetingOwner) {
+        meetingOwnerName = `${meetingOwner.first_name} ${meetingOwner.last_name}`;
+    }
 
     return (
         <>

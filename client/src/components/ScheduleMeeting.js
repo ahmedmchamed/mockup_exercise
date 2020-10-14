@@ -1,95 +1,127 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ScheduleMeeting() {
+export default function ScheduleMeeting({usersList, handleNewMeeting}) {
 
-    const formState = {
-        title: "",
-        description: "",
-        duration: 0,
-        owner: null,
-        guests: []
+    const guestHtmlSelect = usersList.map((user, index) => {
+        return <option key={index} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+    })
+
+    const initialFormState = {
+        meetingTitle: "",
+        meetingDescription: "",
+        duration: 0
     }
 
-    const [formInput, setFormInput] = useState(formState);
-    const {title, description, duration, owner, guests} = formInput;
+    const [formInput, setFormInput] = useState(initialFormState);
+    const {meetingTitle, meetingDescription, duration} = formInput;
+    const [guestIds, setGuestIds] = useState([]);
+    const [startTime, setStartTime] = useState("");
+    const [endTime, setEndTime] = useState("");
 
-    const [postResultObject, setPostResultObject] = useState({});
+    const [guestHtmlList, setGuestHtmlList] = useState([]);
+    
+    useEffect(() => {
+        handleDuration()
+    }, [duration])
 
     const handleFormInput = (event) => {
         setFormInput({
             ...formInput,
             [event.target.name]: event.target.value
         })
-        console.log(title)
-        console.log(description)
-        console.log(duration)
     }
 
-    const handleOwnerSearch = (event) => {
+    const handleGuests = (event) => {
 
-    }
+        setGuestIds([...guestIds, event.target.value])
 
-    const handleSubmit = () => {
-        const postUrl = "https://coding-test.ajenta.io/meetings";
-        fetch(postUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formInput)
+        const addGuestToList = usersList.map((user, index) => {
+            
+            if (user.id === parseInt(event.target.value)) {
+                return <li key={index}>{`${user.first_name} ${user.last_name}`}</li>
+            }
+
         })
-        .then(res => res.json())
-        .then(postObject => setPostResultObject(postObject));
+
+        setGuestHtmlList([...guestHtmlList, addGuestToList])
+    }
+
+    const handleDuration = () => {
+        const currentTime = new Date();
+        setStartTime(currentTime.toISOString());
+        console.log(currentTime)
+
+        const endTime = new Date();
+        endTime.setHours(currentTime.getHours() + parseInt(duration))
+        setEndTime(endTime);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const schedulePostPayload = {
+            name: meetingTitle,
+            owner: guestIds[Math.floor(Math.random() * guestIds.length)],
+            description: meetingDescription,
+            start_time: startTime,
+            end_time: endTime,
+            guests: guestIds
+        }
+
+        handleNewMeeting(schedulePostPayload);
     }
 
     return (
         <>
-            <form className="schedule-form" onSubmit={handleSubmit}>
-                <label>
-                    TITLE
+            <div className="add-new-schedule">
+                <form className="schedule-form" onSubmit={handleSubmit}>
+                    <label>
+                        TITLE
+                        <input 
+                            name="meetingTitle"
+                            type="text"  
+                            value={meetingTitle} 
+                            onChange={handleFormInput} 
+                            placeholder="Weekly Meeting"
+                        />
+                    </label>
+                    <label>
+                        DESCRIPTION
+                        <input
+                            name="meetingDescription"
+                            type="text"
+                            value={meetingDescription}
+                            onChange={handleFormInput}
+                            placeholder="Weekly Stand Up and Project"
+                        />
+                    </label>
+                    <label>
+                        DURATION
+                        <select name="duration" defaultValue="default" onChange={handleFormInput}>
+                            <option disabled value="default"> ⏳ </option>
+                            <option value="1">1h</option>
+                            <option value="2">2h</option>
+                            <option value="3">3h</option>
+                        </select>
+                    </label>
                     <input 
-                        name="title"
-                        type="text"  
-                        value={title} 
-                        onChange={handleFormInput} 
-                        placeholder="Weekly Meeting"
+                        id="schedule-submit-button"
+                        type="submit"
+                        value="Schedule Meeting"
                     />
-                </label>
-                <label>
-                    DESCRIPTION
-                    <input
-                        name="description"
-                        type="text"
-                        value={description}
-                        onChange={handleFormInput}
-                        placeholder="Weekly Stand Up and Project"
-                    />
-                </label>
-                <label>
-                    DURATION
-                    <select name="duration" value={duration} defaultValue="default" onChange={handleFormInput}>
-                        <option disabled selected="selected" value="default"></option>
-                        <option value="1">1h</option>
-                        <option value="2">2h</option>
-                        <option value="3">3h</option>
-                    </select>
-                </label>
-                <input 
-                    id="schedule-submit-button"
-                    type="submit"
-                    value="Schedule Meeting"
-                />
-            </form>
+                </form>
+            </div>
             <div className="add-guests-field">
                 <label>
                     ADD GUESTS
-                    <input
-                        name="owner"
-                        type="text"
-                        value={owner}
-                        onChange={handleOwnerSearch}
-                    />
+                    <select defaultValue="default" onChange={handleGuests}>
+                        <option disabled value="default">Choose your guests...</option>
+                        {guestHtmlSelect}
+                    </select>
                 </label>
+                <ul>
+                    {guestHtmlList}
+                </ul>
             </div>
         </>
     )
