@@ -4,7 +4,6 @@ import './meetinglist.css';
 
 const MeetingsList = ({meetingsList, usersList}) => {
 
-    console.log(meetingsList)
     const meetings = meetingsList.map((meeting, index) => {
         return <UsersList
                     key={index}

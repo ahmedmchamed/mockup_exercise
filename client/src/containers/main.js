@@ -82,7 +82,6 @@ class Main extends Component {
         }
 
         componentDidMount() {
-            console.log(process.env.REACT_APP_GETUSERS)
             this.fetchMeetingsList();
             this.fetchUsersList();
         }

@@ -12,6 +12,7 @@ const UsersList = (props) => {
     const meetingName = props.meetingName.charAt(0).toUpperCase() + props.meetingName.slice(1);
     const meetingOwner = props.usersList.find(user => user.id === props.owner);
     let meetingOwnerName;
+    
     if (meetingOwner) {
         meetingOwnerName = `${meetingOwner.first_name} ${meetingOwner.last_name}`;
     }

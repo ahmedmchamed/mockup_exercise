@@ -9,13 +9,13 @@ const SideNav = () => {
             <div id="side-nav-bar">
                 <nav>
                     <ul>
-                        <li>
-                            <Link 
+                        <li >
+                            <Link
                                 to="/home">HOME
                             </Link>
                         </li>
-                        <li>
-                            <Link 
+                        <li >
+                            <Link
                                 to="/schedule">SCHEDULE
                             </Link>
                         </li>

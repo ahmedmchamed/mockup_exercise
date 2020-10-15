@@ -32,6 +32,6 @@
     border-left: 10px solid #ff7f27;
 }
     
-#side-nav-bar a.active {
+#side-nav-bar > nav > ul > li > a.active {
     border-left: 10px solid #ff7f27;
 }
