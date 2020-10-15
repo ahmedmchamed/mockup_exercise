@@ -21,6 +21,7 @@
 
 #top-nav-bar > header > nav {
     justify-self: flex-end;
+    margin-right: 80px;
 }
 
 #top-nav-bar > header > nav > ul {
@@ -38,4 +39,8 @@ a {
     font-size: 16px;
     letter-spacing: 0.1px;
     text-decoration: none;
+}
+
+#top-nav-bar > nav.top-nav-links > ul > #logout {
+    color: orange;
 }

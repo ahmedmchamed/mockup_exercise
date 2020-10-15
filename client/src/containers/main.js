@@ -5,6 +5,7 @@ import MeetingsList from '../components/MeetingsList.js';
 import ScheduleMeeting from '../components/ScheduleMeeting.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './main.css';
+require('dotenv').config();
 
 class Main extends Component {
 
@@ -16,14 +17,15 @@ class Main extends Component {
                 newMeeting: {}
             }
 
-            this.fetchMeetingsList = this.fetchMeetingsList.bind(this);
             this.postNewMeeting = this.postNewMeeting.bind(this);
+            this.fetchMeetingsList = this.fetchMeetingsList.bind(this);
+            this.fetchUsersList = this.fetchUsersList.bind(this);
         }
 
         postNewMeeting(newMeetingObject) {
             console.log(newMeetingObject)
 
-            const postUrl = "https://coding-test.ajenta.io/meetings";
+            const postUrl = process.env.REACT_APP_POSTMEETING;
             fetch(postUrl, {
                 method: "POST",
                 headers: {
@@ -48,7 +50,7 @@ class Main extends Component {
         }
 
         fetchMeetingsList() {
-            const meetingsUrl = "https://coding-test.ajenta.io/meetings";
+            const meetingsUrl = process.env.REACT_APP_GETMEETINGS;
 
             fetch(meetingsUrl)
             .then(res => res.json())
@@ -64,7 +66,7 @@ class Main extends Component {
         }
 
         fetchUsersList() {
-            const usersUrl = "https://coding-test.ajenta.io/users";
+            const usersUrl = process.env.REACT_APP_GETUSERS;
 
             fetch(usersUrl)
             .then(res => res.json())
@@ -80,6 +82,7 @@ class Main extends Component {
         }
 
         componentDidMount() {
+            console.log(process.env.REACT_APP_GETUSERS)
             this.fetchMeetingsList();
             this.fetchUsersList();
         }

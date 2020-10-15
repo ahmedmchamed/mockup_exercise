@@ -3,7 +3,7 @@
 #schedule-form-title {
     font-family: 'Montserrat', sans-serif;
     margin-left: 96px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 #schedule {
@@ -42,6 +42,12 @@ input[type="text"] {
     border-radius: 15px;
 }
 
+#schedule > div.add-guests-field > ul {
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
+    margin-left: 65px;
+}
+
 label {
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -56,4 +62,15 @@ select {
     display: block;
     border-style: none;
     margin-top: 15px;
+}
+
+input[type="submit"] {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    padding: 11px 25px 11px 25px;
+    font-size:14px;
+    color:#ffffff;
+    letter-spacing:0.06px;
+    background-color: #ff7f27;
+    margin-left: 185px;
 }

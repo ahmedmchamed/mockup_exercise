@@ -5,8 +5,9 @@ body {
 }
 
 #scheduled-meetings-title {
+    font-family: 'Montserrat', sans-serif;
     margin-left: 96px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 div.scheduled-meetings {
@@ -34,6 +35,10 @@ tr.table-body {
     box-shadow:0 2px 4px 0 #bdbdbd;
     border-radius:8px;
     height:56px;
+}
+
+#call-id {
+    color:#ff7f27;
 }
 
 
