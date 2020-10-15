@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './schedulemeetings.css'
 
-export default function ScheduleMeeting({usersList, handleNewMeeting}) {
+const ScheduleMeeting = ({usersList, handleNewMeeting}) => {
 
     const guestHtmlSelect = usersList.map((user, index) => {
         return <option key={index} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
@@ -127,5 +127,6 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
             </div>
         </>
     )
-
 }
+
+export default ScheduleMeeting;

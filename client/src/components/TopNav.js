@@ -16,7 +16,7 @@ const TopNav = () => {
                     <ul>
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Admin</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li id="logout"><a href="#">Logout</a></li>
                     </ul>
                 </nav>
                 </header>

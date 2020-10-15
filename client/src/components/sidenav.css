@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 #side-nav-bar {
     height: 100%;
     width: 298px;
@@ -15,13 +17,11 @@
 }
     
 #side-nav-bar a {
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     float: left;
     display: block;
     width: 100%;
     color: #121212;
-    text-align: center;
-    box-sizing: border-box;
     padding: 15px 20px;
     text-decoration: none;
     font-size: 17px;
