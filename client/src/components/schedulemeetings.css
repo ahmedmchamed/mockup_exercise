@@ -3,7 +3,7 @@
 #schedule-form-title {
     font-family: 'Montserrat', sans-serif;
     margin-left: 96px;
-    margin-top: 80px;
+    margin-top: 72px;
 }
 
 #schedule {
@@ -67,6 +67,7 @@ select {
 input[type="submit"] {
     font-family: 'Montserrat', sans-serif;
     border-radius: 50px;
+    border: none;
     padding: 11px 25px 11px 25px;
     font-size:14px;
     color:#ffffff;

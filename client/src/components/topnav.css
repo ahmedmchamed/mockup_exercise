@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-#top-nav-bar {
+div.top-nav-bar {
+    text-align: center;
     background-color: #003049;
     padding: 20px 20px 20px 20px;
 }
@@ -13,23 +14,30 @@
     border-radius: 15px;
 }
 
-#top-nav-bar > header {
+::-webkit-input-placeholder { 
+    color: #003049;
+  }
+
+div.top-nav-bar > header {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
     align-items: center;
 }
 
-#top-nav-bar > header > nav {
+div.top-nav-bar > header > nav {
+    text-align: center;
     justify-self: flex-end;
     margin-right: 80px;
 }
 
-#top-nav-bar > header > nav > ul {
+div.top-nav-bar > header > nav > ul {
     display: flex;
     list-style-type: none;
+    align-items: center;
 }
 
-#top-nav-bar > header > nav > ul > li {
+div.top-nav-bar > header > nav > ul > li {
+    display: inline;
     margin: 0 15px;
 }
 
@@ -41,6 +49,14 @@ a {
     text-decoration: none;
 }
 
-#top-nav-bar > nav.top-nav-links > ul > #logout {
-    color: orange;
+#logout {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    border-radius: 50px;
+    background: white;
+    padding: 10px 10px 10px 10px;
+}
+
+#logout > a {
+    color: #ff7f27;
 }
