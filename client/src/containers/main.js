@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import SideNav from '../components/SideNav.js';
+import TopNav from '../components/TopNav.js';
 import MeetingsList from '../components/MeetingsList.js';
 import ScheduleMeeting from '../components/ScheduleMeeting.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import './main.css';
 
 class Main extends Component {
 
@@ -97,28 +99,31 @@ class Main extends Component {
             return (
                 <Router>
                     <>
-                        <SideNav />
-                        <Switch>
-                            <Route 
-                                path="/home"
-                                render={(props) => 
-                                    <MeetingsList
-                                        {...props}
-                                        usersList={this.state.usersList} 
-                                        meetingsList={this.state.meetingsList}
-                                    />
-                                }
-                            />
-                            <Route 
-                                path="/schedule"
-                                render={() => 
-                                    <ScheduleMeeting 
-                                        usersList={this.state.usersList}
-                                        handleNewMeeting={this.postNewMeeting}
-                                    />
-                                }
-                            />
-                        </Switch>
+                        <div id="main-container">
+                            <SideNav />
+                            <TopNav />
+                            <Switch>
+                                <Route 
+                                    path="/home"
+                                    render={(props) => 
+                                        <MeetingsList
+                                            {...props}
+                                            usersList={this.state.usersList} 
+                                            meetingsList={this.state.meetingsList}
+                                        />
+                                    }
+                                />
+                                <Route 
+                                    path="/schedule"
+                                    render={() => 
+                                        <ScheduleMeeting 
+                                            usersList={this.state.usersList}
+                                            handleNewMeeting={this.postNewMeeting}
+                                        />
+                                    }
+                                />
+                            </Switch>
+                        </div>
                     </>
                 </Router>
             )

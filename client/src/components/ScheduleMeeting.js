@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './schedulemeetings.css'
 
 export default function ScheduleMeeting({usersList, handleNewMeeting}) {
 
@@ -34,7 +35,7 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
     const handleGuests = (event) => {
         setGuestIds([...guestIds, event.target.value])
 
-        const addGuestToList = usersList.map((user, index) => {
+        const addGuestToHtmlList = usersList.map((user, index) => {
             
             if (user.id === parseInt(event.target.value)) {
                 return <li key={index}>{`${user.first_name} ${user.last_name}`}</li>
@@ -42,7 +43,7 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
 
         })
 
-        setGuestHtmlList([...guestHtmlList, addGuestToList])
+        setGuestHtmlList([...guestHtmlList, addGuestToHtmlList])
     }
 
     const handleDuration = () => {
@@ -108,7 +109,7 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
                         value="Schedule Meeting"
                     />
                 </form>
-            </div>
+            {/* </div> */}
             <div className="add-guests-field">
                 <label>
                     ADD GUESTS
@@ -120,6 +121,7 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
                 <ul>
                     {guestHtmlList}
                 </ul>
+            </div>
             </div>
         </>
     )

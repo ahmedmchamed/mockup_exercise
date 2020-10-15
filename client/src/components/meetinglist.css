@@ -1,7 +1,6 @@
-/* .scheduled-meetings > dl {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-} */
+div.scheduled-meetings {
+    grid-column: 2/3;
+}
 
 /* table {
     border-collapse: separate;
