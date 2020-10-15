@@ -1,3 +1,37 @@
 #top-nav-bar {
-    grid-column: 2/3;
+    background-color: #003049;
+    padding: 20px 20px 20px 20px;
+}
+
+#search-box {
+    margin-left: 77px;
+    height: 35px;
+    width: 500px;
+    border-radius: 15px;
+}
+
+#top-nav-bar > header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+#top-nav-bar > header > nav {
+    justify-self: flex-end;
+}
+
+#top-nav-bar > header > nav > ul {
+    display: flex;
+    list-style-type: none;
+}
+
+#top-nav-bar > header > nav > ul > li {
+    margin: 0 15px;
+}
+
+a {
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
 }

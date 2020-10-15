@@ -1,3 +1,57 @@
-div.add-new-schedule {
-    grid-column: 2/3;
+@font-face {
+font-family: Montserrat-Medium;
+src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+#schedule-form-title {
+    margin-left: 96px;
+    margin-top: 50px;
+}
+
+#schedule {
+    display: flex;
+    justify-content: center;
+}
+
+#schedule > div.add-new-schedule > form {
+    background-color: white;
+    padding: 20px 20px 40px 20px;
+    height: 404px;
+    width: 550px;
+    border-radius: 15px;
+    margin-left: 42px;
+    margin-right: 20px;
+}
+
+input[type="text"] {
+    flex: 0 20px 200px;
+    background-color: #efeeee;
+    width: 540px;
+    height: 35px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-color: #bdbdbd;
+    border-radius: 5px;
+}
+
+#schedule > div.add-guests-field {
+    background-color: white;
+    padding: 20px 20px 40px 20px;
+    height: 404px;
+    width: 345px;
+    border-radius: 15px;
+}
+
+label {
+    font-family: M;
+    display: block;
+    color: black;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+select {
+    display: block;
 }

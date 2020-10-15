@@ -20,8 +20,8 @@ const MeetingsList = ({meetingsList, usersList}) => {
 
     return (
         <>
+            <h3 id="scheduled-meetings-title">SCHEDULED MEETINGS ({meetings.length})</h3>
             <div className="scheduled-meetings">
-                <h3 className="scheduled-meetings-title">SCHEDULED MEETINGS ({meetings.length})</h3>
                 <figure className="meeting-list-table">
                     <table>
                         <thead>

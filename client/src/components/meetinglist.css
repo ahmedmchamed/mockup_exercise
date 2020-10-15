@@ -1,52 +1,35 @@
-div.scheduled-meetings {
-    grid-column: 2/3;
-}
-
-/* table {
-    border-collapse: separate;
-    border-spacing: 0 30px;
-} */
-
-/* tr {
-    border: solid thin;
-} */
-
-/* tr.test {
-    border: 1px solid blue;
-}
-
-tr.test > td {
-    padding-bottom: 1em;
-} */
-
-/* body{
+body {
     background-color: #efeeee;
-} */
+}
+
+#scheduled-meetings-title {
+    margin-left: 96px;
+    margin-top: 50px;
+}
+
+div.scheduled-meetings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 table {
     border-collapse: separate;
     border-spacing: 1em ;
     border-radius: 8px;
+    width: 960px;
+    background-color: white;
 }
-
-
-/* table {
-    border-collapse: collapse;
-} */
-
-/* td {
-    text-align: left;
-} */
 
 tr.table-header {
     text-align: left;
+    background-color: white;
 }
 
 tr.table-body {
     background:#ffffff;
-    box-shadow:0 2px 4px 0 rgba(158,158,158,0.27);
+    box-shadow:0 2px 4px 0 #bdbdbd;
     border-radius:8px;
-    width:960px;
     height:56px;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import './userslist.css';
 
 const UsersList = (props) => {
 
