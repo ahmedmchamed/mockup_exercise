@@ -17,7 +17,6 @@ const TopNav = () => {
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Admin</a></li>
                         <li id="logout"><a href="#">Logout</a></li>
-                        {/* <li id="logout"><button><a href="#">Logout</a></button></li> */}
                     </ul>
                 </nav>
                 </header>
