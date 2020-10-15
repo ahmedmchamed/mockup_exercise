@@ -32,7 +32,6 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
     }
 
     const handleGuests = (event) => {
-
         setGuestIds([...guestIds, event.target.value])
 
         const addGuestToList = usersList.map((user, index) => {
@@ -49,7 +48,6 @@ export default function ScheduleMeeting({usersList, handleNewMeeting}) {
     const handleDuration = () => {
         const currentTime = new Date();
         setStartTime(currentTime.toISOString());
-        console.log(currentTime)
 
         const endTime = new Date();
         endTime.setHours(currentTime.getHours() + parseInt(duration))
